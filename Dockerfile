@@ -6,6 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Install essential tools and dependencies
 RUN apt-get update && apt-get install -y \
     curl \
+    unzip \
     git \
     build-essential \
     python3 \
@@ -21,5 +22,5 @@ ENV PATH="/root/.cargo/bin:$PATH"
 # Set working directory
 WORKDIR /workspace
 
-# Default command
-CMD ["/bin/bash"]
+# Keep container running
+CMD ["tail", "-f", "/dev/null"]
